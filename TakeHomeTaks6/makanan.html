@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rumah Makan</title>
+</head>
+<body>
+    <header>
+        <h2>RUMAH MAKAN</h2>
+    </header>
+    <section>
+        <form id="orderForm">
+            <table>
+                <tr>
+                    <td>Makanan:</td>
+                    <td>
+                        <select id="makanan" name="makanan">
+                            <option value="ayam bakar">Ayam Bakar</option>
+                            <option value="Soto Ayam">Soto Ayam</option>
+                            <option value="Babi Bakar">Babi bakar</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jumlah:</td>
+                    <td><input type="number" id="jumlah" name="jumlah" min="1" required></td>
+                </tr>
+                <tr>
+                    <td>Voucher:</td>
+                    <td><input type="text" id="voucher" name="voucher"></td>
+                </tr>
+            </table>
+
+            <button type="button" onclick="calculateTotal()">Submit</button><br>
+
+            <p>
+                <h4>Nama Pesanan:</h4>
+                <span id="namaPesanan"></span>
+            </p>
+            <p>
+                <h4>Jumlah Pesanan:</h4>
+                <span id="jumlahPesanan"></span>
+            </p>
+            <p>
+                <h4>Total Diskon:</h4>
+                <span id="totalDiskon"></span>
+            </p>
+            <p>
+                <h4>Total Harga:</h4>
+                <span id="totalHarga"></span>
+            </p>
+        </form>
+    </section>
+
+    <script>
+        let restoran = {
+            Makanan: '',
+            Jumlah: 0,
+            Voucher: '',
+        };
+
+        function calculateTotal() {
+            // Mengambil Nilai dari form
+            restoran.Makanan = document.getElementById('makanan').value;
+            restoran.Jumlah = parseInt(document.getElementById('jumlah').value);
+            restoran.Voucher = document.getElementById('voucher').value.toLowerCase();
+
+            // HARGA MAKANAN
+            let hargaMakan = {
+                'soto_ayam': 15000, //lima belas ribu
+                'ayam_bakar': 20000, //dua puluh ribu
+                'babi_bakar': 100000, //seratus ribu
+            };
+
+            let hargaPerItem = hargaMakan[restoran.Makanan];
+            let totalHarga = restoran.Jumlah * hargaPerItem;
+            let discount = 0;
+
+            // Gunakan diskon jika kode voucher valid
+            if (restoran.Voucher === 'makanaja') {
+                discount = 0.20; // diskon 20%
+                totalHarga -= totalHarga * discount;
+            }
+
+            // Display pesanan secara detail
+            document.getElementById('namaPesanan').textContent = restoran.Makanan;
+            document.getElementById('jumlahPesanan').textContent = restoran.Jumlah;
+            document.getElementById('totalDiskon').textContent = (discount * 100) + '%';
+            document.getElementById('totalHarga').textContent = 'Rp.' + totalHarga.toFixed(2);
+        }
+    </script>
+
+</body>
+ </html>
