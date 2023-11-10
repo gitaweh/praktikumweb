@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Menukar </title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<body>
+<h1>Menukar Objek</h1>
+
+<ul class="example">
+  <li class="child">Coffee</li>
+  <li class="child">Tea</li>
+</ul>
+
+<p>Click "Change" untuk mengganti item pertama:</p>
+<button onclick="myFunction()">Change</button>
+
+<script>
+function myFunction() {
+  const list = document.getElementsByClassName("example")[0];
+  list.getElementsByClassName("child")[0].innerHTML = "Milk";
+}
+</script>
+
+</body>
+</html>
