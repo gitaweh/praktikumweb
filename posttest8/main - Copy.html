@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Nilai Mata Kuliah</title>
+</head>
+<body>
+
+<form action="proses.php" method="POST">
+    <label for="nilai_mk">Nilai Mata Kuliah:</label>
+    <input type="number" name="nilai_mk[]" required>
+    <button type="button" onclick="tambahMataKuliah()">Tambah Mata Kuliah</button>
+    <br><br>
+    <button type="submit">Hitung IPK</button>
+</form>
+
+<script>
+function tambahMataKuliah() {
+    var input = document.createElement("input");
+    input.type = "number";
+    input.name = "nilai_mk[]";
+    input.required = true;
+
+    var br = document.createElement("br");
+
+    document.querySelector('form').insertBefore(input, document.querySelector('button'));
+    document.querySelector('form').insertBefore(br, document.querySelector('button'));
+}
+</script>
+
+</body>
+</html>
