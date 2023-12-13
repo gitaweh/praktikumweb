@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Perpustakaan</title>
+</head>
+<body>
+
+  <h1>Perpustakaan</h1>
+
+  <div class="menu">
+    <a href="#">Peminjaman Buku</a>
+    <a href="#">Pengembalian Buku</a>
+    <a href="#">Daftar Member</a>
+  </div>
+
+  <div class="content">
+
+    <section id="peminjaman-buku">
+      <h2>Peminjaman Buku</h2>
+      <form action="proses-peminjaman.php" method="post">
+        <input type="text" name="nama" placeholder="Nama">
+        <input type="text" name="nim" placeholder="NIM">
+        <input type="text" name="judul" placeholder="Judul Buku">
+        <input type="submit" value="Pinjam">
+      </form>
+    </section>
+
+    <section id="pengembalian-buku">
+      <h2>Pengembalian Buku</h2>
+      <form action="proses-pengembalian.php" method="post">
+        <input type="text" name="nama" placeholder="Nama">
+        <input type="text" name="nim" placeholder="NIM">
+        <input type="text" name="judul" placeholder="Judul Buku">
+        <input type="submit" value="Kembalikan">
+      </form>
+    </section>
+
+    <section id="daftar-member">
+      <h2>Daftar Member</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>NIM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Adam</td>
+            <td>10527292</td>
+          </tr>
+          <tr>
+            <td>Jahe</td>
+            <td>10521872</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </div>
+
+</body>
+</html>
